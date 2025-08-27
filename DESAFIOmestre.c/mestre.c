@@ -41,3 +41,15 @@ int obterValor(Carta c, int atributo) {
         default: return 0;
     }
 }
+// Nome do atributo
+const char* nomeAtributo(int atributo) {
+    switch (atributo) {
+        case 1: return "População";
+        case 2: return "Área";
+        case 3: return "PIB";
+        case 4: return "Expectativa de Vida";
+        case 5: return "Densidade Demográfica";
+        case 6: return "Ataque";
+        case 7: return "Recuo";
+        default: return "Desconhecido";
+    }
