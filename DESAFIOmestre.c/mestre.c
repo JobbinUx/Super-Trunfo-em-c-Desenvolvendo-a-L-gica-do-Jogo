@@ -101,3 +101,37 @@ int main() {
     printf("\nAtributo 2: %s\n", nomeAtributo(atributo2));
     printf("  %s: %d\n", cartas[0].nome, valor2_c1);
     printf("  %s: %d\n", cartas[1].nome, valor2_c2);
+     // Comparar atributos (considerando se menor vence ou não)
+    int vencedorA1 = menorVence(atributo1) ?
+                    (valor1_c1 < valor1_c2 ? 0 : 1) :
+                    (valor1_c1 > valor1_c2 ? 0 : 1);
+
+    int vencedorA2 = menorVence(atributo2) ?
+                    (valor2_c1 < valor2_c2 ? 0 : 1) :
+                    (valor2_c1 > valor2_c2 ? 0 : 1);
+
+    printf("\nResultado do Atributo 1 (%s): %s venceu!",
+           nomeAtributo(atributo1),
+           vencedorA1 == 0 ? cartas[0].nome : cartas[1].nome);
+
+    printf("\nResultado do Atributo 2 (%s): %s venceu!",
+           nomeAtributo(atributo2),
+           vencedorA2 == 0 ? cartas[0].nome : cartas[1].nome);
+
+    // Soma dos atributos
+    int soma_c1 = valor1_c1 + valor2_c1;
+    int soma_c2 = valor1_c2 + valor2_c2;
+
+    printf("\n\n--- Resultado Final ---\n");
+    printf("%s - Soma dos atributos: %d\n", cartas[0].nome, soma_c1);
+    printf("%s - Soma dos atributos: %d\n", cartas[1].nome, soma_c2);
+
+    // Vencedor final
+    if (soma_c1 == soma_c2) {
+        printf("\nEmpate!\n");
+    } else {
+        printf("\nVencedor da rodada: %s\n", (soma_c1 > soma_c2) ? cartas[0].nome : cartas[1].nome);
+    }
+
+    return 0;
+}
