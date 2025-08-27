@@ -41,6 +41,7 @@ int obterValor(Carta c, int atributo) {
         default: return 0;
     }
 }
+
 // Nome do atributo
 const char* nomeAtributo(int atributo) {
     switch (atributo) {
@@ -53,7 +54,10 @@ const char* nomeAtributo(int atributo) {
         case 7: return "Recuo";
         default: return "Desconhecido";
     }
-    int menorVence(int atributo) {
+}
+
+// Verifica se o atributo é "menor vence"
+int menorVence(int atributo) {
     return (atributo == 5 || atributo == 7); // Densidade ou Recuo
 }
 
@@ -74,7 +78,8 @@ int main() {
             printf("Opção inválida. Tente novamente.\n");
         }
     } while (atributo1 < 1 || atributo1 > 7);
-  // Escolha do segundo atributo
+
+    // Escolha do segundo atributo
     do {
         mostrarAtributos(atributo1);
         scanf("%d", &atributo2);
@@ -101,7 +106,8 @@ int main() {
     printf("\nAtributo 2: %s\n", nomeAtributo(atributo2));
     printf("  %s: %d\n", cartas[0].nome, valor2_c1);
     printf("  %s: %d\n", cartas[1].nome, valor2_c2);
-     // Comparar atributos (considerando se menor vence ou não)
+
+    // Comparar atributos (considerando se menor vence ou não)
     int vencedorA1 = menorVence(atributo1) ?
                     (valor1_c1 < valor1_c2 ? 0 : 1) :
                     (valor1_c1 > valor1_c2 ? 0 : 1);
