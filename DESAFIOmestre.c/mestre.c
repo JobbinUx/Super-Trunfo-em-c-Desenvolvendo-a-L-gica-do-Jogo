@@ -53,3 +53,24 @@ const char* nomeAtributo(int atributo) {
         case 7: return "Recuo";
         default: return "Desconhecido";
     }
+    int menorVence(int atributo) {
+    return (atributo == 5 || atributo == 7); // Densidade ou Recuo
+}
+
+int main() {
+    // Cartas pré-cadastradas
+    Carta cartas[NUM_CARTAS] = {
+        {"Brasil", 213, 8516, 2200, 75, 25, 80, 20},
+        {"Alemanha", 83, 357, 4200, 81, 232, 70, 10}
+    };
+
+    int atributo1 = 0, atributo2 = 0;
+
+    // Escolha do primeiro atributo
+    do {
+        mostrarAtributos(0);
+        scanf("%d", &atributo1);
+        if (atributo1 < 1 || atributo1 > 7) {
+            printf("Opção inválida. Tente novamente.\n");
+        }
+    } while (atributo1 < 1 || atributo1 > 7);
