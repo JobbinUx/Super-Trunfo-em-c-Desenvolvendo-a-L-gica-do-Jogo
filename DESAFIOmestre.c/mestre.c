@@ -74,3 +74,30 @@ int main() {
             printf("Opção inválida. Tente novamente.\n");
         }
     } while (atributo1 < 1 || atributo1 > 7);
+  // Escolha do segundo atributo
+    do {
+        mostrarAtributos(atributo1);
+        scanf("%d", &atributo2);
+        if (atributo2 < 1 || atributo2 > 7 || atributo2 == atributo1) {
+            printf("Opção inválida. Tente novamente.\n");
+        }
+    } while (atributo2 < 1 || atributo2 > 7 || atributo2 == atributo1);
+
+    // Obter os valores
+    int valor1_c1 = obterValor(cartas[0], atributo1);
+    int valor1_c2 = obterValor(cartas[1], atributo1);
+    int valor2_c1 = obterValor(cartas[0], atributo2);
+    int valor2_c2 = obterValor(cartas[1], atributo2);
+
+    // Mostrar os dados
+    printf("\n--- Comparando Cartas ---\n");
+    printf("Carta 1: %s\n", cartas[0].nome);
+    printf("Carta 2: %s\n", cartas[1].nome);
+
+    printf("\nAtributo 1: %s\n", nomeAtributo(atributo1));
+    printf("  %s: %d\n", cartas[0].nome, valor1_c1);
+    printf("  %s: %d\n", cartas[1].nome, valor1_c2);
+
+    printf("\nAtributo 2: %s\n", nomeAtributo(atributo2));
+    printf("  %s: %d\n", cartas[0].nome, valor2_c1);
+    printf("  %s: %d\n", cartas[1].nome, valor2_c2);
